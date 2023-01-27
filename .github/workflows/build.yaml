@@ -1,0 +1,20 @@
+name: Build and Deploy Docs
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: install deps
+        run: sudo apt-get update && sudo apt-get install -y git doxygen graphviz && mkdir /docs
+
+      - name: gen docs
+        run: chmod +x docs.sh && docs.sh
+
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: /docs
