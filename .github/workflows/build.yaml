@@ -12,7 +12,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y git doxygen graphviz && sudo mkdir /docs && sudo chmod 777 /docs
 
       - name: gen docs
-        run: chmod +x docs.sh && docs.sh
+        run: chmod +x docs.sh && ./docs.sh
 
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
