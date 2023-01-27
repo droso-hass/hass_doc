@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: install deps
-        run: sudo apt-get update && sudo apt-get install -y git doxygen graphviz && mkdir /docs
+        run: sudo apt-get update && sudo apt-get install -y git doxygen graphviz && sudo mkdir /docs && sudo chmod 777 /docs
 
       - name: gen docs
         run: chmod +x docs.sh && docs.sh
