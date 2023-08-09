@@ -1,6 +1,10 @@
 name: Build and Deploy Docs
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron:  "0 4 10 * *"
+
 
 permissions:
   contents: read
